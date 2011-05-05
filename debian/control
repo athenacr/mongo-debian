@@ -34,7 +34,9 @@ Description: An object/document-oriented database (metapackage)
 
 Package: mongodb-server
 Architecture: i386 amd64
-Depends: mongodb-clients, ${shlibs:Depends}, ${misc:Depends}, adduser
+Depends: ${shlibs:Depends}, ${misc:Depends}
+ , adduser
+ , libmongoclient1.8
 Description: An object/document-oriented database (server package)
  MongoDB is a high-performance, open source, schema-free 
  document-oriented  data store that's easy to deploy, manage
@@ -58,6 +60,7 @@ Description: An object/document-oriented database (server package)
 Package: mongodb-clients
 Architecture: i386 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
+ , libmongoclient1.8
 Description: An object/document-oriented database (client apps)
  MongoDB is a high-performance, open source, schema-free 
  document-oriented  data store that's easy to deploy, manage
@@ -69,7 +72,7 @@ Description: An object/document-oriented database (client apps)
     * Full index support, including on inner objects
     * Query profiling
     * Replication and fail-over support
-    * Efficient storage of binary data including large 
+    * Efficient storage of binary data including large
       objects (e.g. videos)
     * Auto-sharding for cloud-level scalability (Q209)
  .
@@ -81,7 +84,7 @@ Description: An object/document-oriented database (client apps)
 Package: mongodb-dev
 Section: libdevel
 Architecture: i386 amd64
-Depends: mongodb-server, libboost-dev, ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, libmongoclient-dev
 Description: An object/document-oriented database (development)
  MongoDB is a high-performance, open source, schema-free 
  document-oriented  data store that's easy to deploy, manage
@@ -102,3 +105,52 @@ Description: An object/document-oriented database (development)
  .
  Development headers and libraries.
 
+Package: libmongoclient-dev
+Section: libdevel
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+ , libmongoclient1.8
+ , libboost-dev 
+Description: An object/document-oriented database (development)
+ MongoDB is a high-performance, open source, schema-free 
+ document-oriented  data store that's easy to deploy, manage
+ and use. It's network accessible, written in C++ and offers
+ the following features :
+ .
+    * Collection oriented storage - easy storage of object-
+      style data
+    * Full index support, including on inner objects
+    * Query profiling
+    * Replication and fail-over support
+    * Efficient storage of binary data including large 
+      objects (e.g. videos)
+    * Auto-sharding for cloud-level scalability (Q209)
+ .
+ High performance, scalability, and reasonable depth of
+ functionality are the goals for the project.
+ .
+ Development headers and libraries.
+
+Package: libmongoclient1.8
+Section: lib
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: An object/document-oriented database (development)
+ MongoDB is a high-performance, open source, schema-free 
+ document-oriented  data store that's easy to deploy, manage
+ and use. It's network accessible, written in C++ and offers
+ the following features :
+ .
+    * Collection oriented storage - easy storage of object-
+      style data
+    * Full index support, including on inner objects
+    * Query profiling
+    * Replication and fail-over support
+    * Efficient storage of binary data including large 
+      objects (e.g. videos)
+    * Auto-sharding for cloud-level scalability (Q209)
+ .
+ High performance, scalability, and reasonable depth of
+ functionality are the goals for the project.
+ .
+ Runtime Library
